@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rui Zheng — research in management science, interpretable AI, network science, agent-based modelling, and sustainable supply chains." />
+  <title>Rui Zheng | Research</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --surface: #ffffff;
+      --text: #182235;
+      --muted: #637086;
+      --line: #dde3eb;
+      --accent: #365b8c;
+      --accent-2: #7389a6;
+      --soft: #edf2f8;
+      --max: 1180px;
+      --shadow: 0 18px 45px rgba(25, 39, 62, 0.08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(246,248,251,.88);
+      border-bottom: 1px solid rgba(221,227,235,.8);
+    }
+    .nav-inner {
+      height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 22px;
+    }
+    .brand { font-weight: 800; letter-spacing: -.02em; font-size: 1.08rem; }
+    .nav-links { display: flex; gap: 22px; font-size: .94rem; color: var(--muted); }
+    .nav-links a:hover { color: var(--accent); }
+    .menu-btn { display:none; border:0; background:none; font-size:1.3rem; }
+
+    .hero { padding: 92px 0 66px; }
+    .hero-grid { display:grid; grid-template-columns: 1.12fr .88fr; gap: 70px; align-items:center; }
+    .eyebrow { color: var(--accent); font-weight: 700; letter-spacing:.12em; text-transform:uppercase; font-size:.78rem; }
+    h1 { font-size: clamp(3.4rem, 7vw, 6.3rem); line-height:.94; letter-spacing:-.065em; margin: 13px 0 25px; }
+    .hero h1 span { color: var(--accent); }
+    .lead { font-size: 1.35rem; line-height:1.55; max-width: 760px; color:#3d4a5f; margin:0 0 28px; }
+    .chips { display:flex; flex-wrap:wrap; gap:10px; margin: 28px 0 34px; }
+    .chip { background:var(--soft); border:1px solid #dbe3ec; color:#465970; padding:8px 12px; border-radius:999px; font-size:.87rem; }
+    .buttons { display:flex; flex-wrap:wrap; gap:12px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 17px; border-radius:10px; font-weight:700; font-size:.92rem; border:1px solid var(--line); background:var(--surface); }
+    .btn.primary { background:var(--text); color:#fff; border-color:var(--text); }
+    .btn:hover { transform:translateY(-1px); box-shadow:0 8px 22px rgba(24,34,53,.09); }
+
+    .portrait-card { background:linear-gradient(145deg,#e7edf5,#fdfefe); border:1px solid var(--line); min-height:470px; border-radius:30px; box-shadow:var(--shadow); display:flex; flex-direction:column; justify-content:flex-end; position:relative; overflow:hidden; }
+    .portrait-card::before, .portrait-card::after { content:""; position:absolute; border-radius:50%; border:1px solid rgba(54,91,140,.18); }
+    .portrait-card::before { width:320px;height:320px; top:-90px;right:-90px; }
+    .portrait-card::after { width:180px;height:180px; top:74px;right:76px; }
+    .avatar { width:166px;height:166px;border-radius:50%; margin:0 0 22px 34px; background:var(--text); color:white; display:flex; align-items:center; justify-content:center; font-size:3.2rem; font-weight:800; letter-spacing:-.05em; position:relative; z-index:1; box-shadow:0 12px 35px rgba(24,34,53,.18); }
+    .portrait-text { padding:0 34px 34px; position:relative; z-index:1; }
+    .portrait-text strong { display:block; font-size:1.32rem; }
+    .portrait-text span { color:var(--muted); }
+
+    section { padding: 78px 0; }
+    .section-head { display:flex; justify-content:space-between; gap:30px; align-items:end; margin-bottom:34px; }
+    .section-head h2 { font-size: clamp(2.1rem,4vw,3.45rem); letter-spacing:-.045em; line-height:1.05; margin:8px 0 0; }
+    .section-head p { max-width:520px; color:var(--muted); margin:0; }
+    .grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+    .card { background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:24px; box-shadow:0 8px 25px rgba(25,39,62,.035); }
+    .card h3 { margin:11px 0 10px; font-size:1.08rem; letter-spacing:-.015em; }
+    .card p { color:var(--muted); margin:0; font-size:.94rem; }
+    .num { font-size:.78rem; font-weight:800; color:var(--accent); letter-spacing:.1em; }
+
+    .project-grid { display:grid; grid-template-columns: 1fr 1fr; gap:20px; }
+    .project { background:var(--surface); border:1px solid var(--line); border-radius:22px; padding:28px; position:relative; overflow:hidden; min-height:270px; }
+    .project.featured { grid-column:1 / -1; display:grid; grid-template-columns:1.15fr .85fr; gap:30px; align-items:center; min-height:320px; }
+    .badge { display:inline-block; font-size:.76rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); background:var(--soft); padding:6px 9px; border-radius:8px; }
+    .project h3 { font-size:1.5rem; margin:14px 0 10px; letter-spacing:-.025em; }
+    .project p { color:var(--muted); max-width:700px; }
+    .tags { display:flex;flex-wrap:wrap;gap:7px;margin-top:18px; }
+    .tags span { font-size:.76rem;background:#f7f9fb;border:1px solid var(--line);padding:5px 8px;border-radius:999px;color:#57667a; }
+
+    .network-art { min-height:220px; position:relative; border-radius:18px; background:#f5f8fb; border:1px solid #e2e8ef; overflow:hidden; }
+    .network-art svg { width:100%; height:100%; position:absolute; inset:0; }
+
+    .impact { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .metric { padding:27px 20px;background:var(--text);color:#fff;border-radius:18px; }
+    .metric strong { font-size:1.8rem; display:block; margin-bottom:5px; letter-spacing:-.03em; }
+    .metric span { color:#c8d3df; font-size:.9rem; }
+
+    .pub-list { display:grid; gap:12px; }
+    .pub { background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 24px;display:grid;grid-template-columns:92px 1fr auto;gap:20px;align-items:start; }
+    .pub-year { color:var(--accent);font-weight:800; }
+    .pub h3 { margin:0 0 5px;font-size:1.02rem; }
+    .pub p { margin:0;color:var(--muted);font-size:.9rem; }
+    .pub-status { font-size:.75rem;background:var(--soft);padding:6px 8px;border-radius:7px;color:var(--accent);font-weight:700; white-space:nowrap; }
+
+    .two-col { display:grid;grid-template-columns:1fr 1fr;gap:22px; }
+    .timeline { background:var(--surface); border:1px solid var(--line);border-radius:20px;padding:28px; }
+    .timeline-item { padding:0 0 24px 22px; border-left:1px solid #ced7e2; position:relative; }
+    .timeline-item:last-child { padding-bottom:0; }
+    .timeline-item::before { content:"";width:9px;height:9px;border-radius:50%;background:var(--accent);position:absolute;left:-5px;top:7px; }
+    .timeline-item small { color:var(--accent);font-weight:700; }
+    .timeline-item h3 { margin:4px 0; font-size:1rem; }
+    .timeline-item p { margin:0;color:var(--muted);font-size:.9rem; }
+
+    .contact-box { background:var(--text);color:white;border-radius:26px;padding:42px;display:flex;justify-content:space-between;gap:30px;align-items:center; }
+    .contact-box h2 { margin:0 0 10px;font-size:2.1rem;letter-spacing:-.04em; }
+    .contact-box p { margin:0;color:#c7d1dd;max-width:760px; }
+    .contact-box .btn { background:white;border-color:white;color:var(--text); }
+
+    footer { padding:32px 0 45px;color:var(--muted);font-size:.86rem; }
+    .foot { display:flex;justify-content:space-between;gap:20px; }
+
+    @media (max-width:900px) {
+      .hero-grid,.project.featured,.two-col { grid-template-columns:1fr; }
+      .grid-4,.impact { grid-template-columns:1fr 1fr; }
+      .portrait-card{min-height:380px;}
+      .nav-links{display:none}.menu-btn{display:block}
+      .nav-links.open{position:absolute;display:flex;flex-direction:column;top:72px;left:0;right:0;background:var(--surface);padding:20px 30px;border-bottom:1px solid var(--line)}
+    }
+    @media (max-width:620px) {
+      .wrap { width:min(calc(100% - 26px),var(--max)); }
+      .hero{padding-top:58px}.hero-grid{gap:38px}h1{font-size:3.45rem}
+      .grid-4,.impact,.project-grid{grid-template-columns:1fr}.project.featured{grid-column:auto}
+      .pub{grid-template-columns:1fr;gap:8px}.contact-box,.section-head,.foot{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">RZ / Research</a>
+    <button class="menu-btn" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#impact">Funding & Impact</a>
+      <a href="#experience">Teaching</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Management Science · AI · Complex Systems</div>
+        <h1>Rui <span>Zheng</span>, PhD</h1>
+        <p class="lead">I develop interpretable, data-driven models to understand complex decision systems — from social influence and networks to sustainable logistics and supply chains.</p>
+        <div class="chips">
+          <span class="chip">Network Science</span><span class="chip">Interpretable AI</span><span class="chip">Agent-Based Modelling</span><span class="chip">Simulation</span><span class="chip">Sustainable Supply Chains</span>
+        </div>
+        <div class="buttons">
+          <a class="btn primary" href="#projects">Explore my research</a>
+          <a class="btn" href="#publications">Publications</a>
+          <a class="btn" href="#contact">CV / Contact</a>
+        </div>
+      </div>
+      <div class="portrait-card">
+        <div class="avatar">RZ</div>
+        <div class="portrait-text">
+          <strong>Researcher in Management Science</strong>
+          <span>University of Manchester · UK</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">Research</div><h2>Four connected research themes</h2></div>
+        <p>My work combines analytical modelling, simulation and data-driven methods to study how decisions and interactions shape complex systems.</p>
+      </div>
+      <div class="grid-4">
+        <article class="card"><div class="num">01</div><h3>Complex Systems & Network Science</h3><p>Network structure, information diffusion, social influence, resilience and interconnected systems.</p></article>
+        <article class="card"><div class="num">02</div><h3>AI & Interpretable Decision Modelling</h3><p>Machine learning, explainable modelling and transparent decision-support under uncertainty.</p></article>
+        <article class="card"><div class="num">03</div><h3>Agent-Based Modelling & Simulation</h3><p>Heterogeneous actors, behavioural rules, bargaining, collaboration and emergent system dynamics.</p></article>
+        <article class="card"><div class="num">04</div><h3>Sustainable Logistics & Supply Chains</h3><p>Multimodal transport, routing, decarbonisation, collaboration and digital-twin inspired decision support.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">Selected projects</div><h2>Research with applied impact</h2></div>
+        <p>A selection of current and recent projects spanning European research, transport innovation and intelligent supply-chain systems.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project featured">
+          <div>
+            <span class="badge">Horizon Europe</span>
+            <h3>Strength2Farm</h3>
+            <p>Simulation and machine-learning research on bargaining power, market structure and farmer–buyer interactions in European food supply chains, including agent-based modelling of strategic behaviour and collaboration.</p>
+            <div class="tags"><span>Agent-Based Modelling</span><span>Machine Learning</span><span>Bargaining Power</span><span>Food Systems</span></div>
+          </div>
+          <div class="network-art" aria-hidden="true">
+            <svg viewBox="0 0 520 300" preserveAspectRatio="none">
+              <g stroke="#b9c6d5" stroke-width="1.5" opacity=".9">
+                <line x1="70" y1="80" x2="210" y2="115"/><line x1="70" y1="80" x2="145" y2="220"/><line x1="210" y1="115" x2="355" y2="78"/><line x1="210" y1="115" x2="330" y2="205"/><line x1="145" y1="220" x2="330" y2="205"/><line x1="355" y1="78" x2="440" y2="165"/><line x1="330" y1="205" x2="440" y2="165"/>
+              </g>
+              <g fill="#365b8c"><circle cx="70" cy="80" r="12"/><circle cx="210" cy="115" r="18"/><circle cx="355" cy="78" r="10"/><circle cx="145" cy="220" r="14"/><circle cx="330" cy="205" r="21"/><circle cx="440" cy="165" r="13"/></g>
+            </svg>
+          </div>
+        </article>
+        <article class="project">
+          <span class="badge">TRIG · UK Transport Innovation</span>
+          <h3>Transparent & Sustainable B2B Logistics</h3>
+          <p>Scenario-based optimisation and simulation for small food and drink producers, evaluating collaborative delivery, vehicle choice, cost and carbon impacts.</p>
+          <div class="tags"><span>Optimisation</span><span>GIS</span><span>Simulation</span><span>Industry Engagement</span></div>
+        </article>
+        <article class="project">
+          <span class="badge">AI + Multimodal Transport</span>
+          <h3>AI-Augmented Intelligent Road–Rail Logistics</h3>
+          <p>AI-driven logistics models and simulation engines for analysing cost–emissions–service trade-offs under uncertainty across multimodal supply chains.</p>
+          <div class="tags"><span>AI</span><span>Routing</span><span>Road–Rail</span><span>Decision Support</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="impact">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">Funding & impact</div><h2>Built for collaboration</h2></div>
+        <p>I work across academic, industry and policy-facing settings, translating quantitative research into decision-support tools and evidence.</p>
+      </div>
+      <div class="impact">
+        <div class="metric"><strong>Horizon Europe</strong><span>International collaborative research</span></div>
+        <div class="metric"><strong>TRIG</strong><span>UK transport innovation funding</span></div>
+        <div class="metric"><strong>20+</strong><span>Industry engagement meetings in logistics research</span></div>
+        <div class="metric"><strong>Multi-sector</strong><span>Food, transport, logistics and decision systems</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">Featured research</div><h2>Selected publications & working papers</h2></div>
+        <p>This preview uses research-theme titles. We can replace these with your exact publication titles, DOI links and journal details in the next revision.</p>
+      </div>
+      <div class="pub-list">
+        <article class="pub"><div class="pub-year">Networks</div><div><h3>Social influence and belief formation in complex networks</h3><p>Interpretable modelling of how network topology affects the magnitude and distribution of social influence.</p></div><span class="pub-status">Add citation</span></article>
+        <article class="pub"><div class="pub-year">Data</div><div><h3>Similarity networks and community structure in individual decision-making</h3><p>Data-driven network construction and community detection for understanding attitudinal similarity and behavioural outcomes.</p></div><span class="pub-status">Add citation</span></article>
+        <article class="pub"><div class="pub-year">Systems</div><div><h3>Resilience and structural change in global supply networks</h3><p>Network-based analysis of trade structure, concentration, community formation and vulnerability under targeted disruption.</p></div><span class="pub-status">Add citation</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="eyebrow">Academic profile</div><h2>Research, teaching & methods</h2></div>
+        <p>A compact overview for collaborators and funding reviewers who want to understand both domain expertise and methodological capability.</p>
+      </div>
+      <div class="two-col">
+        <div class="timeline">
+          <div class="timeline-item"><small>Current</small><h3>Research — University of Manchester</h3><p>Research in sustainable supply chains, logistics, simulation and data-driven decision support.</p></div>
+          <div class="timeline-item"><small>PhD</small><h3>Management Science</h3><p>Interpretable data-driven modelling and inference for quantifying social influence in decision-making.</p></div>
+          <div class="timeline-item"><small>Teaching</small><h3>Business Data Analytics</h3><p>Teaching experience across analytics, data visualisation and applied quantitative methods.</p></div>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item"><small>Methods</small><h3>Computational modelling</h3><p>Agent-based modelling, simulation, optimisation, machine learning and interpretable modelling.</p></div>
+          <div class="timeline-item"><small>Networks</small><h3>Network science</h3><p>Community detection, resilience analysis, diffusion, social influence and weighted/directed network analysis.</p></div>
+          <div class="timeline-item"><small>Tools</small><h3>Research software</h3><p>R, Python, GIS, routing, visual analytics, Tableau, SAS and reproducible computational workflows.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-box">
+        <div>
+          <h2>Open to research collaboration</h2>
+          <p>I welcome interdisciplinary collaborations involving AI, network science, agent-based modelling, sustainable supply chains, logistics, transport, food systems and complex decision-making.</p>
+        </div>
+        <div class="buttons">
+          <a class="btn" href="#">Download CV</a>
+          <a class="btn" href="#">Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Rui Zheng. Academic research profile.</span>
+    <span>Manchester, United Kingdom</span>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open')));
+</script>
+</body>
+</html>
